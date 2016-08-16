@@ -12,9 +12,13 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 
+<# //We are starting #>
+<#@ assembly name="$(TargetDir)ServiceModel.dll" #>
+<#@ import namespace="ServiceModel.Models" #>
+<#@ include file="TemplateFileManagerV2.1.ttinclude" #>
 
-<#   
-   //template code - you get IntelliSense here
+
+<#
    string Greeting = "Hello";
    string SampleInputFileContent 
     =  @"<Model>
@@ -26,6 +30,31 @@
     // string SampleInputFileContent = System.IO.File.ReadAllText( 
     // System.IO.Path.GetDirectoryName(this.Host.TemplateFile) + "\\datafile.xml");  	
 #>
+
+
+<#
+var entitiesNamespace = "ServiceModel.Models";
+var fileManager = TemplateFileManager.Create(this);
+var entitiesAssembly = "$(TargetDir)ServiceModel.dll";
+var typesToRegister = 
+    from t in Assembly.LoadFile(entitiesAssembly).GetExportedTypes()
+    where t.Namespace == entitiesNamespace && t.IsClass && !t.IsAbstract
+    select t;
+
+
+fileManager.StartNewFile("ANewFile1.txt");
+#>
+//A new file1
+
+<#
+fileManager.StartNewFile("ANewFile2.txt");
+#>
+//This is another file
+
+<#
+fileManager.Process();
+#>
+
 // This is the output code from your template
 // you only get syntax-highlighting here - not intellisense
 namespace MyNameSpace{

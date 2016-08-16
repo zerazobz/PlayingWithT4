@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Common\T4\TemplateFileManagerV2.1.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceModel\ServiceModel.csproj">
@@ -61,6 +62,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\T4\ANewFile1.txt">
+      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
+    </Content>
+    <Content Include="Common\T4\ANewFile2.txt">
+      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
+    </Content>
     <Content Include="Common\T4\ViewModelGenerators.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewModelGenerators.cs</LastGenOutput>

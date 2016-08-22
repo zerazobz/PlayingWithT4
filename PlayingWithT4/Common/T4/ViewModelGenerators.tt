@@ -12,10 +12,12 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 
-<# //We are starting #>
+
+
 <#@ assembly name="$(TargetDir)ServiceModel.dll" #>
 <#@ import namespace="ServiceModel.Models" #>
 <#@ include file="TemplateFileManagerV2.1.ttinclude" #>
+<#@ import namespace="System.Reflection" #>
 
 
 <#
@@ -24,34 +26,32 @@
     =  @"<Model>
         <Table name=""Rain""><Column name=""Night""/><Column name=""Day""/></Table>
         <Table name=""Temperatur""><Column name=""Night""/><Column name=""Day""/></Table>
-        </Model>";	 
+        </Model>";
     // Certainly you would normally load the model data from a file using 
     // the relative path of the template as shown below:
     // string SampleInputFileContent = System.IO.File.ReadAllText( 
     // System.IO.Path.GetDirectoryName(this.Host.TemplateFile) + "\\datafile.xml");  	
 #>
 
-
 <#
 var entitiesNamespace = "ServiceModel.Models";
 var fileManager = TemplateFileManager.Create(this);
-var entitiesAssembly = "$(TargetDir)ServiceModel.dll";
+var entitiesAssembly = "ServiceModel.dll";
 var typesToRegister = 
-    from t in Assembly.LoadFile(entitiesAssembly).GetExportedTypes()
+    from t in Assembly.LoadFrom(@"C:\Users\Erick Asto\Documents\DEV\UCSP\CI\testprojects\PlayingWithT4\ServiceModel\LibForT4\ServiceModel.dll").GetExportedTypes()
     where t.Namespace == entitiesNamespace && t.IsClass && !t.IsAbstract
     select t;
 
-
-fileManager.StartNewFile("ANewFile1.txt");
+foreach (var type in typesToRegister.Where(t => t.IsClass && !t.IsAbstract))
+{
+   fileManager.StartNewFile(String.Format("{0}.cs",type.Name));
 #>
-//A new file1
-
+namespace ACustomNamespace
+{
+    //Some Content Here
+}
 <#
-fileManager.StartNewFile("ANewFile2.txt");
-#>
-//This is another file
-
-<#
+}
 fileManager.Process();
 #>
 
@@ -72,6 +72,13 @@ namespace MyNameSpace{
  
 <#+  
   // Insert any template procedures here
+    Assembly LoadFromFile(string relativePath)
+    {
+        string finalPath = System.IO.Path.Combine(@"C:\Users\Erick Asto\Documents\DEV\UCSP\CI\testprojects\PlayingWithT4\ServiceModel\LibForT4", relativePath);
+        //string finalPath = System.IO.Path.Combine(@"C:\Users\Erick Asto\Documents\DEV\UCSP\CI\testprojects\PlayingWithT4\PlayingWithT4.Reflection\bin\Debug\", relativePath);
+        return Assembly.LoadFile(finalPath);
+    }
+
   void getWeatherDataCodeGen(string Input) {
     System.Xml.Linq.XDocument XmlDoc = System.Xml.Linq.XDocument.Parse(Input);
     

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithT4", "PlayingWit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceModel", "ServiceModel\ServiceModel.csproj", "{0DCFDF41-2DB9-45FE-A0F9-30A816DEEF62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingWithT4.Reflection", "PlayingWithT4.Reflection\PlayingWithT4.Reflection.csproj", "{92EAC3BC-CE50-400D-BF4D-E1828019758C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0DCFDF41-2DB9-45FE-A0F9-30A816DEEF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCFDF41-2DB9-45FE-A0F9-30A816DEEF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DCFDF41-2DB9-45FE-A0F9-30A816DEEF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92EAC3BC-CE50-400D-BF4D-E1828019758C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92EAC3BC-CE50-400D-BF4D-E1828019758C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92EAC3BC-CE50-400D-BF4D-E1828019758C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92EAC3BC-CE50-400D-BF4D-E1828019758C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

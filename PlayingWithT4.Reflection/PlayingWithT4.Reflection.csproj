@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2142A459-807B-4B3E-B77D-B243D271CE71}</ProjectGuid>
+    <ProjectGuid>{92EAC3BC-CE50-400D-BF4D-E1828019758C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlayingWithT4</RootNamespace>
-    <AssemblyName>PlayingWithT4</AssemblyName>
+    <RootNamespace>PlayingWithT4.Reflection</RootNamespace>
+    <AssemblyName>PlayingWithT4.Reflection</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,26 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\T4\EarphoneModel.cs">
-      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Common\T4\ScrollBarModel.cs">
-      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Common\T4\ViewModelGenerators.cs">
-      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Common\T4\WindowModel.cs">
-      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Common\T4\TemplateFileManagerV2.1.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceModel\ServiceModel.csproj">
@@ -70,20 +55,7 @@
       <Name>ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Common\T4\ViewModelGenerators.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ViewModelGenerators.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

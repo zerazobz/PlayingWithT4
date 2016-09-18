@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>ServiceModelKey.pfx</AssemblyOriginatorKeyFile>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\EarphoneModel.cs" />
+    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\ScrollBarModel.cs" />
     <Compile Include="Models\WindowModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

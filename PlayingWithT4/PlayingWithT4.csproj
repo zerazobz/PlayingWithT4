@@ -46,6 +46,9 @@
     <Compile Include="Common\T4\EarphoneModel.cs">
       <DependentUpon>ViewModelGenerators.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\T4\PageModel.cs">
+      <DependentUpon>ViewModelGenerators.tt</DependentUpon>
+    </Compile>
     <Compile Include="Common\T4\ScrollBarModel.cs">
       <DependentUpon>ViewModelGenerators.tt</DependentUpon>
     </Compile>

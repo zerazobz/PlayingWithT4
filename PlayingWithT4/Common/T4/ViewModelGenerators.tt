@@ -46,9 +46,28 @@ foreach (var type in typesToRegister.Where(t => t.IsClass && !t.IsAbstract))
 {
    fileManager.StartNewFile(String.Format("{0}.cs",type.Name));
 #>
+using System;
+
 namespace ACustomNamespace
 {
     //Some Content Here
+    public partial class <#= type.Name #>
+    {
+<# 
+		foreach(var iProperty in type.GetProperties())
+        {
+			//var methodInfo = iProperty.GetGetMethod(true);
+			
+            if (iProperty.GetGetMethod(true).IsPublic)
+            {
+#>
+        public <#= iProperty.PropertyType.Name #> <#= iProperty.Name #> { get; set; }
+<#		 
+            }
+
+        }
+#>
+    }
 }
 <#
 }
